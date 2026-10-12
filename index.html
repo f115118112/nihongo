@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>日本語 はじめの一歩</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef1f4;--panel:#fff;--ink:#14213d;--sub:#5a6578;--line:#d5dbe3;--brand:#2b4c7e;--brand-ink:#fff;--hi:#f2c14e;--ok:#2f7d4f;--ng:#b3372d;--okbg:#e3f1e8;--ngbg:#f7e3e0;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1623;--panel:#18223a;--ink:#e8ecf4;--sub:#9aa6bd;--line:#2b3a58;--brand:#8fb2ec;--brand-ink:#0f1623;--hi:#c99a2e;--ok:#6fcf97;--ng:#f08a80;--okbg:#17352a;--ngbg:#3a1f1d}}
+:root[data-theme="dark"]{--bg:#0f1623;--panel:#18223a;--ink:#e8ecf4;--sub:#9aa6bd;--line:#2b3a58;--brand:#8fb2ec;--brand-ink:#0f1623;--hi:#c99a2e;--ok:#6fcf97;--ng:#f08a80;--okbg:#17352a;--ngbg:#3a1f1d}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:"Zen Kaku Gothic New","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;line-height:1.7}
+.jp{font-family:"Shippori Mincho","Noto Serif JP","Hiragino Mincho ProN",serif}
+header{max-width:860px;margin:0 auto;padding:28px 16px 8px}
+h1{margin:0;font-size:1.5rem;font-weight:700}
+h1 .jp{font-size:2.2rem;font-weight:800;letter-spacing:.04em;display:block;line-height:1.2}
+header p{margin:6px 0 0;color:var(--sub);max-width:60ch}
+nav{max-width:860px;margin:12px auto 0;padding:0 16px;display:flex;gap:6px;border-bottom:1px solid var(--line)}
+nav button{flex:0 0 auto;background:none;border:0;border-bottom:3px solid transparent;color:var(--sub);font:inherit;font-weight:700;padding:10px 14px;cursor:pointer}
+nav button[aria-selected="true"]{color:var(--ink);border-color:var(--brand)}
+main{max-width:860px;margin:0 auto;padding:20px 16px 56px}
+button:focus-visible{outline:3px solid var(--brand);outline-offset:2px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-bottom:14px}
+.seg button{background:var(--panel);border:0;color:var(--ink);font:inherit;padding:7px 16px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--brand);color:var(--brand-ink);font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.cell{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:10px 0 8px;text-align:center;cursor:pointer;color:var(--ink);font:inherit}
+.cell .k{display:block;font-family:"Shippori Mincho","Noto Serif JP",serif;font-size:clamp(1.6rem,6vw,2.3rem);line-height:1.1;font-weight:600}
+.cell .r{display:block;font-size:.8rem;color:var(--sub)}
+.cell.on{background:var(--hi);border-color:var(--hi);color:#14213d}.cell.on .r{color:#14213d}
+.cell.gap{visibility:hidden}
+.hint{color:var(--sub);font-size:.9rem;margin:10px 0 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px;margin-top:16px}
+.card h3{margin:0 0 8px;font-size:1.05rem}
+.lessons{display:flex;flex-wrap:wrap;gap:8px}
+.lessons button{background:var(--panel);border:1px solid var(--line);border-radius:8px;color:var(--ink);font:inherit;padding:8px 12px;cursor:pointer;text-align:left}
+.lessons button[aria-pressed="true"]{border-color:var(--brand);box-shadow:inset 0 0 0 1px var(--brand);font-weight:700}
+.pattern{font-size:1.5rem;font-family:"Shippori Mincho",serif;font-weight:600;background:var(--bg);border-left:4px solid var(--brand);padding:10px 14px;border-radius:4px;margin:8px 0}
+.line{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-top:1px solid var(--line)}
+.line:first-of-type{border-top:0}
+.who{flex:0 0 28px;height:28px;border-radius:50%;background:var(--brand);color:var(--brand-ink);display:grid;place-items:center;font-weight:700;font-size:.85rem}
+.line .jpt{font-family:"Shippori Mincho",serif;font-size:1.2rem}
+.line .ro,.line .zh{display:block;font-size:.88rem;color:var(--sub)}
+.play{margin-left:auto;background:none;border:1px solid var(--line);border-radius:50%;width:34px;height:34px;color:var(--ink);cursor:pointer;flex:0 0 auto}
+.opts{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:10px}
+.opts button{background:var(--bg);border:1px solid var(--line);border-radius:8px;color:var(--ink);font:inherit;padding:10px;cursor:pointer}
+.opts button.ok{background:var(--okbg);border-color:var(--ok);color:var(--ok);font-weight:700}
+.opts button.ng{background:var(--ngbg);border-color:var(--ng);color:var(--ng)}
+.big{font-family:"Shippori Mincho",serif;font-size:5rem;text-align:center;line-height:1.1;margin:6px 0 12px;font-weight:800}
+.stat{color:var(--sub);font-size:.9rem;text-align:center;margin-top:12px}
+.next{margin-top:12px;background:var(--brand);color:var(--brand-ink);border:0;border-radius:8px;padding:9px 18px;font:inherit;font-weight:700;cursor:pointer}
+textarea{width:100%;min-height:90px;border:1px dashed var(--line);border-radius:8px;background:var(--bg);color:var(--sub);font:inherit;padding:10px;resize:none}
+.done{color:var(--ok);font-weight:700;margin-left:6px}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.tile{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 6px;text-align:center}
+.tile b{display:block;font-size:1.6rem;line-height:1.2}.tile span{font-size:.8rem;color:var(--sub)}
+.mg{display:grid;grid-template-columns:repeat(10,1fr);gap:4px}
+.mk{border-radius:6px;text-align:center;padding:4px 0;border:1px solid var(--line);background:var(--panel)}
+.mk .jp{display:block;font-size:1.2rem;font-weight:600;line-height:1.2}
+.mk i{display:block;font-style:normal;font-size:.62rem;color:var(--sub)}
+.mk.m0{opacity:.55}.mk.m1{background:var(--ngbg);border-color:var(--ng)}.mk.m3{background:var(--okbg);border-color:var(--ok)}
+.mk.m2{background:var(--hi);border-color:var(--hi);color:#14213d}.mk.m2 i{color:#14213d}
+.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:.82rem;color:var(--sub);margin-top:10px}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;border:1px solid var(--line);background:var(--c,var(--panel))}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{background:var(--ngbg);border:1px solid var(--ng);border-radius:99px;padding:3px 12px;font-size:.9rem}
+.days{display:grid;grid-template-columns:repeat(14,1fr);gap:4px}
+.dy{aspect-ratio:1;border:1px solid var(--line);border-radius:6px;display:grid;place-items:center;font-size:.7rem;color:var(--sub)}
+.dy.on{background:var(--brand);color:var(--brand-ink);border-color:var(--brand)}
+.lr{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-top:1px solid var(--line)}
+.lr:first-of-type{border-top:0}
+.ghost{background:none;border:1px solid var(--line);border-radius:8px;color:var(--sub);font:inherit;padding:7px 14px;cursor:pointer}
+@media(max-width:520px){.tiles{grid-template-columns:repeat(2,1fr)}.mg{grid-template-columns:repeat(5,1fr)}.days{grid-template-columns:repeat(7,1fr)}}
+</style>
+</head>
+<body>
+<header>
+  <h1><span class="jp">日本語 はじめの一歩</span>從五十音到第一句對話</h1>
+  <p>先認得假名，再用四個基礎句型開口說。點任何假名或例句都可以聽發音。</p>
+</header>
+<nav role="tablist" id="tabs">
+  <button role="tab" data-t="kana" aria-selected="true">五十音</button>
+  <button role="tab" data-t="quiz" aria-selected="false">假名練習</button>
+  <button role="tab" data-t="gram" aria-selected="false">文法對話</button>
+  <button role="tab" data-t="log" aria-selected="false">學習記錄</button>
+  <button role="tab" data-t="ai" aria-selected="false">AI 老師</button>
+</nav>
+<main id="app"></main>
+
+<script>
+/* ---------- helpers ---------- */
+const $ = s => document.querySelector(s);
+const store = {
+  get(k, d){ try{ const v = localStorage.getItem('jp:'+k); return v ? JSON.parse(v) : d; }catch(e){ return d; } },
+  set(k, v){ try{ localStorage.setItem('jp:'+k, JSON.stringify(v)); }catch(e){} }
+};
+const say = t => { try{ const u = new SpeechSynthesisUtterance(t); u.lang = 'ja-JP'; u.rate = .85; speechSynthesis.cancel(); speechSynthesis.speak(u); }catch(e){} };
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const shuffle = a => a.map(x => [Math.random(), x]).sort((p, q) => p[0] - q[0]).map(x => x[1]);
+
+/* ---------- AI hook: 之後在這裡接上 LLM ----------
+   ask({type, text}) 會回傳字串。type 可以是 'explain' | 'quiz' | 'correct'。
+   目前 enabled=false，介面只顯示預告。 */
+const AI = { enabled: false, async ask(req){ throw new Error('AI 尚未啟用'); } };
+
+/* ---------- data ---------- */
+const ROWS = [
+  ["あいうえお","a i u e o"],["かきくけこ","ka ki ku ke ko"],["さしすせそ","sa shi su se so"],
+  ["たちつてと","ta chi tsu te to"],["なにぬねの","na ni nu ne no"],["はひふへほ","ha hi fu he ho"],
+  ["まみむめも","ma mi mu me mo"],["や　ゆ　よ","ya _ yu _ yo"],["らりるれろ","ra ri ru re ro"],
+  ["わ　　　を","wa _ _ _ wo"],["ん　　　　","n _ _ _ _"]
+];
+const toKata = c => /[ぁ-ん]/.test(c) ? String.fromCharCode(c.charCodeAt(0) + 96) : c;
+const KANA = ROWS.flatMap(([k, r]) => { const ro = r.split(' '); return Array.from(k).map((c, i) => ({h: c, r: ro[i]})).filter(x => x.r !== '_'); });
+
+const LESSONS = [
+ { t:'これは〜です', pat:'これ／それ／あれ は ＋ 名詞 ＋ です',
+   note:'「は」在這裡唸作 wa，表示話題。「です」讓句子變禮貌。「これ」指離我近的東西，「それ」指離你近的，「あれ」指離雙方都遠的。',
+   dlg:[{s:'A',jp:'これは なんですか。',ro:'kore wa nan desu ka',zh:'這是什麼？'},
+        {s:'B',jp:'それは ほんです。',ro:'sore wa hon desu',zh:'那是書。'},
+        {s:'A',jp:'あれも ほんですか。',ro:'are mo hon desu ka',zh:'那個也是書嗎？'},
+        {s:'B',jp:'いいえ、あれは ざっしです。',ro:'iie, are wa zasshi desu',zh:'不，那個是雜誌。'}],
+   qz:[{q:'「それは ほんです」的意思是？',o:['那是書','我要書','這是雜誌','那裡有書'],a:0},
+       {q:'句子中的「は」要怎麼唸？',o:['ha','wa','ba','pa'],a:1}] },
+ { t:'自我介紹', pat:'わたしは ＋ 名字 ＋ です',
+   note:'初次見面的固定說法：はじめまして → 自我介紹 → よろしくおねがいします。日本人說自己名字時不加「さん」。',
+   dlg:[{s:'A',jp:'はじめまして。わたしは りんです。',ro:'hajimemashite. watashi wa rin desu',zh:'初次見面，我是琳。'},
+        {s:'B',jp:'はじめまして。たなかです。',ro:'hajimemashite. tanaka desu',zh:'初次見面，我是田中。'},
+        {s:'B',jp:'よろしく おねがいします。',ro:'yoroshiku onegaishimasu',zh:'請多指教。'},
+        {s:'A',jp:'こちらこそ よろしく おねがいします。',ro:'kochira koso yoroshiku onegaishimasu',zh:'彼此彼此，請多指教。'}],
+   qz:[{q:'初次見面第一句通常說？',o:['ありがとう','はじめまして','さようなら','おやすみ'],a:1},
+       {q:'「わたしは りんです」是？',o:['問對方名字','自我介紹','道謝','道別'],a:1}] },
+ { t:'〜を 〜ます', pat:'名詞 ＋ を ＋ 動詞ます',
+   note:'「を」標示動作的對象，唸作 o。動詞「ます形」是禮貌的現在／未來式。問句在句尾加「か」。',
+   dlg:[{s:'A',jp:'なにを たべますか。',ro:'nani o tabemasu ka',zh:'你要吃什麼？'},
+        {s:'B',jp:'すしを たべます。',ro:'sushi o tabemasu',zh:'我要吃壽司。'},
+        {s:'B',jp:'あなたは？',ro:'anata wa?',zh:'你呢？'},
+        {s:'A',jp:'わたしは みずを のみます。',ro:'watashi wa mizu o nomimasu',zh:'我喝水。'}],
+   qz:[{q:'「みずを のみます」的意思是？',o:['喝水','吃水果','買水','看水'],a:0},
+       {q:'「を」標示什麼？',o:['地點','動作的對象','時間','人名'],a:1}] },
+ { t:'〜に いきます／〜で 〜ます', pat:'場所 ＋ に いきます　／　場所 ＋ で ＋ 動詞',
+   note:'「に」標示移動的目的地；「で」標示動作發生的場所。',
+   dlg:[{s:'A',jp:'どこに いきますか。',ro:'doko ni ikimasu ka',zh:'你要去哪裡？'},
+        {s:'B',jp:'としょかんに いきます。',ro:'toshokan ni ikimasu',zh:'我要去圖書館。'},
+        {s:'A',jp:'そこで なにを しますか。',ro:'soko de nani o shimasu ka',zh:'在那裡做什麼？'},
+        {s:'B',jp:'にほんごを べんきょうします。',ro:'nihongo o benkyou shimasu',zh:'學日語。'}],
+   qz:[{q:'「がっこうに いきます」中「に」表示？',o:['動作場所','目的地','工具','對象'],a:1},
+       {q:'「としょかんで べんきょうします」中「で」表示？',o:['目的地','時間','動作發生的場所','所有者'],a:2}] }
+];
+
+/* ---------- state ---------- */
+const S = { tab:'kana', script:'h', on:null, qs:null, lesson:0, qScore: store.get('kq', {c:0,t:0}), done: store.get('ld', []), ans:{} };
+
+/* ---------- views ---------- */
+function seg(id, items, cur){
+  return `<div class="seg" id="${id}">${items.map(([v,l]) => `<button data-v="${v}" aria-pressed="${v===cur}">${l}</button>`).join('')}</div>`;
+}
+const disp = c => S.script === 'h' ? c : toKata(c);
+
+function viewKana(){
+  let cells = '';
+  ROWS.forEach(([k, r]) => { const ro = r.split(' ');
+    Array.from(k).forEach((c, i) => {
+      if(ro[i] === '_') cells += '<div class="cell gap"></div>';
+      else cells += `<button class="cell${S.on===c?' on':''}" data-k="${c}"><span class="k">${disp(c)}</span><span class="r">${ro[i]}</span></button>`;
+    });
+  });
+  return seg('script', [['h','平假名'],['k','片假名']], S.script) +
+    `<div class="grid">${cells}</div>
+     <p class="hint">點一下假名會唸出來。平假名用在一般日文，片假名多用於外來語（コーヒー＝咖啡）。</p>`;
+}
+
+function newQ(){
+  const pool = (S.weak && weakList().length) ? weakList() : KANA;
+  const a = pool[Math.floor(Math.random()*pool.length)];
+  const wrong = shuffle(KANA.filter(x => x.r !== a.r)).slice(0,3).map(x => x.r);
+  S.qs = { ch:a.h, ans:a.r, opts:shuffle([a.r, ...wrong]), pick:null };
+}
+function viewQuiz(){
+  if(!S.qs) newQ();
+  const q = S.qs;
+  const opts = q.opts.map(o => { let cls = '';
+    if(q.pick){ if(o===q.ans) cls='ok'; else if(o===q.pick) cls='ng'; }
+    return `<button class="${cls}" data-o="${o}" ${q.pick?'disabled':''}>${o}</button>`; }).join('');
+  return seg('script', [['h','平假名'],['k','片假名']], S.script) +
+    `<div class="card"><div class="big">${disp(q.ch)}</div><div class="opts">${opts}</div>
+     ${q.pick ? `<div style="text-align:center"><button class="next" data-next>下一題</button></div>` : ''}
+     <div class="stat">答對 ${S.qScore.c} ／ 共 ${S.qScore.t} 題${S.weak ? '　（正在練習弱項假名）' : ''}</div></div>`;
+}
+
+function viewGram(){
+  const L = LESSONS[S.lesson];
+  const tabs = LESSONS.map((l, i) => `<button data-l="${i}" aria-pressed="${i===S.lesson}">第${i+1}課 ${l.t}${S.done.includes(i)?'<span class="done">✓</span>':''}</button>`).join('');
+  const dlg = L.dlg.map((d, i) => `<div class="line"><div class="who">${d.s}</div><div><span class="jpt">${esc(d.jp)}</span><span class="ro">${esc(d.ro)}</span><span class="zh">${esc(d.zh)}</span></div><button class="play" data-say="${esc(d.jp)}" aria-label="播放">▶</button></div>`).join('');
+  const qz = L.qz.map((x, qi) => { const k = S.lesson+'-'+qi, p = S.ans[k];
+    return `<div style="margin-top:14px"><b>${esc(x.q)}</b><div class="opts">${x.o.map((o, oi) => {
+      let cls=''; if(p!==undefined){ if(oi===x.a) cls='ok'; else if(oi===p) cls='ng'; }
+      return `<button class="${cls}" data-qa="${k}:${oi}" ${p!==undefined?'disabled':''}>${esc(o)}</button>`; }).join('')}</div></div>`; }).join('');
+  return `<div class="lessons">${tabs}</div>
+    <div class="card"><h3>句型</h3><div class="pattern">${esc(L.pat)}</div><p style="margin:8px 0 0">${esc(L.note)}</p></div>
+    <div class="card"><h3>對話</h3>${dlg}</div>
+    <div class="card"><h3>小測驗</h3>${qz}</div>`;
+}
+
+function viewAI(){
+  return `<div class="card"><h3>AI 老師（預告）</h3>
+    <p style="margin:0 0 10px">之後會加入的功能，這一頁已經預留好位置：</p>
+    <ul style="margin:0 0 12px;padding-left:20px"><li>貼上任何一句日文，解釋文法與讀音</li><li>依你學過的課程自動出練習題</li><li>寫一句日文，AI 幫你批改並說明原因</li></ul>
+    <textarea disabled placeholder="輸入日文句子…（尚未開放）"></textarea></div>`;
+}
+
+/* ---------- 學習記錄 ---------- */
+S.ks = store.get('ks', {});   // 每個假名：{c:答對, w:答錯, last:日期}
+S.days = store.get('days', []); // 有學習的日期
+S.lq = store.get('lq', {});   // 每課小測驗：{c, t}
+S.weak = false; S.rst = false;
+const fmt = d => d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+const acc = o => (o.c+o.w) ? o.c/(o.c+o.w) : null;
+function markDay(){ const t = fmt(new Date()); if(!S.days.includes(t)){ S.days.push(t); store.set('days', S.days); } }
+function recKana(ch, ok){ const s = S.ks[ch] || {c:0,w:0}; if(ok) s.c++; else s.w++; s.last = fmt(new Date()); S.ks[ch] = s; store.set('ks', S.ks); markDay(); }
+function recLesson(i, ok){ const s = S.lq[i] || {c:0,t:0}; s.t++; if(ok) s.c++; S.lq[i] = s; store.set('lq', S.lq); markDay(); }
+function streak(){ const set = new Set(S.days), d = new Date(); if(!set.has(fmt(d))) d.setDate(d.getDate()-1); let n = 0; while(set.has(fmt(d))){ n++; d.setDate(d.getDate()-1); } return n; }
+const weakList = () => KANA.filter(k => { const s = S.ks[k.h]; return s && s.w > 0 && acc(s) < .8; }).sort((a, b) => acc(S.ks[a.h]) - acc(S.ks[b.h]));
+
+function viewLog(){
+  const ks = Object.values(S.ks);
+  const tc = ks.reduce((a, x) => a + x.c, 0), tw = ks.reduce((a, x) => a + x.w, 0);
+  const rate = tc+tw ? Math.round(tc/(tc+tw)*100)+'%' : '—';
+  const tile = (v, l) => `<div class="tile"><b>${v}</b><span>${l}</span></div>`;
+  const cells = KANA.map(k => { const s = S.ks[k.h]; let cls = 'm0';
+    if(s){ const r = acc(s); cls = r >= .85 ? 'm3' : r >= .6 ? 'm2' : 'm1'; }
+    return `<div class="mk ${cls}"><span class="jp">${k.h}</span><i>${k.r}</i></div>`; }).join('');
+  const weak = weakList();
+  const weakHtml = weak.length
+    ? `<div class="chips">${weak.slice(0, 10).map(k => `<span class="chip"><span class="jp">${k.h}</span> ${k.r}　錯 ${S.ks[k.h].w} 次</span>`).join('')}</div><button class="next" data-weak>只練這些假名</button>`
+    : `<p class="hint" style="margin:0">目前沒有明顯的弱項。多做幾題假名練習，常答錯的假名會出現在這裡。</p>`;
+  let dots = '';
+  for(let i = 13; i >= 0; i--){ const d = new Date(); d.setDate(d.getDate()-i); const k = fmt(d);
+    dots += `<div class="dy${S.days.includes(k) ? ' on' : ''}" title="${k}">${d.getDate()}</div>`; }
+  const lessons = LESSONS.map((l, i) => { const s = S.lq[i];
+    return `<div class="lr"><span>第${i+1}課 ${esc(l.t)}</span><span>${S.done.includes(i) ? '<b class="done">已完成</b>' : s ? `答對 ${s.c}／${s.t}` : '尚未開始'}</span></div>`; }).join('');
+  return `<div class="tiles">${tile(streak()+' 天', '連續學習')}${tile(S.days.length+' 天', '累計學習')}${tile(rate, '假名答對率')}${tile(S.done.length+'/'+LESSONS.length, '完成課數')}</div>
+  <div class="card"><h3>假名熟練度</h3><div class="mg">${cells}</div>
+    <div class="legend"><span style="--c:var(--panel)">未練習</span><span style="--c:var(--ngbg)">需加強（60% 以下）</span><span style="--c:var(--hi)">還行（60–85%）</span><span style="--c:var(--okbg)">熟悉（85% 以上）</span></div></div>
+  <div class="card"><h3>需要加強的假名</h3>${weakHtml}</div>
+  <div class="card"><h3>最近 14 天</h3><div class="days">${dots}</div></div>
+  <div class="card"><h3>文法課進度</h3>${lessons}</div>
+  <p class="hint">記錄只存在這個瀏覽器裡，換裝置或清除瀏覽資料就會消失。</p>
+  <button class="ghost" data-reset>${S.rst ? '再按一次，確認清除所有記錄' : '清除學習記錄'}</button>`;
+}
+
+const VIEWS = { kana:viewKana, quiz:viewQuiz, gram:viewGram, log:viewLog, ai:viewAI };
+function render(){
+  document.querySelectorAll('#tabs button').forEach(b => b.setAttribute('aria-selected', b.dataset.t === S.tab));
+  $('#app').innerHTML = VIEWS[S.tab]();
+}
+
+/* ---------- events ---------- */
+$('#tabs').addEventListener('click', e => { const b = e.target.closest('button'); if(b){ if(b.dataset.t === 'quiz'){ S.weak = false; S.qs = null; } S.rst = false; S.tab = b.dataset.t; render(); } });
+$('#app').addEventListener('click', e => {
+  const t = e.target.closest('button'); if(!t) return;
+  if(t.closest('#script')){ S.script = t.dataset.v; return render(); }
+  if(t.dataset.k){ S.on = t.dataset.k; say(t.dataset.k); return render(); }
+  if(t.dataset.o){ const q = S.qs; q.pick = t.dataset.o; S.qScore.t++; if(q.pick === q.ans) S.qScore.c++; store.set('kq', S.qScore); recKana(q.ch, q.pick === q.ans); say(q.ch); return render(); }
+  if('next' in t.dataset){ newQ(); return render(); }
+  if('weak' in t.dataset){ S.weak = true; S.tab = 'quiz'; newQ(); return render(); }
+  if('reset' in t.dataset){
+    if(!S.rst){ S.rst = true; return render(); }
+    ['ks','lq'].forEach(k => store.set(k, {})); ['days','ld'].forEach(k => store.set(k, [])); store.set('kq', {c:0,t:0});
+    S.ks = {}; S.lq = {}; S.days = []; S.done = []; S.qScore = {c:0,t:0}; S.ans = {}; S.rst = false; return render();
+  }
+  if(t.dataset.l){ S.lesson = +t.dataset.l; return render(); }
+  if(t.dataset.say){ return say(t.dataset.say); }
+  if(t.dataset.qa){
+    const [k, oi] = t.dataset.qa.split(':'); S.ans[k] = +oi;
+    recLesson(S.lesson, +oi === LESSONS[S.lesson].qz[+k.split('-')[1]].a);
+    const L = LESSONS[S.lesson];
+    if(L.qz.every((x, i) => S.ans[S.lesson+'-'+i] === x.a) && !S.done.includes(S.lesson)){ S.done.push(S.lesson); store.set('ld', S.done); }
+    return render();
+  }
+});
+render();
+</script>
+</body>
+</html>
